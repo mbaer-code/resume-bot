@@ -5,30 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Martin Baer — Software Engineer</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #0e0e0f;
-    --surface: #161618;
-    --surface2: #1e1e21;
-    --border: rgba(255,255,255,0.08);
-    --border2: rgba(255,255,255,0.14);
-    --text: #e8e6e0;
-    --muted: #888780;
-    --accent: #5DCAA5;
-    --accent2: #1D9E75;
-    --user-bg: #1a2e26;
-    --user-border: #1D9E75;
-    --mono: 'DM Mono', monospace;
-    --sans: 'DM Sans', sans-serif;
+    --bg: #f4f4f2;
+    --surface: #ffffff;
+    --surface2: #f0efed;
+    --border: #dddbd7;
+    --border2: #c8c6c2;
+    --text: #1a1a18;
+    --muted: #6b6966;
+    --accent: #2c5f8a;
+    --accent-light: #e8f0f7;
+    --user-bg: #e8f0f7;
+    --user-border: #2c5f8a;
+    --sans: Georgia, 'Times New Roman', serif;
+    --ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: var(--sans);
+    font-family: var(--ui);
     font-size: 15px;
     line-height: 1.6;
     height: 100dvh;
@@ -48,48 +46,47 @@
   }
 
   .avatar {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent2), #085041);
+    background: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--mono);
     font-size: 13px;
-    font-weight: 500;
-    color: #9FE1CB;
+    font-weight: 600;
+    color: #ffffff;
     flex-shrink: 0;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
   }
 
   .header-info h1 {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text);
-    letter-spacing: -0.01em;
+    font-family: var(--ui);
   }
 
   .header-info p {
     font-size: 12px;
     color: var(--muted);
-    font-family: var(--mono);
     margin-top: 1px;
+  }
+
+  .status {
+    margin-left: auto;
+    font-size: 11px;
+    color: #2e7d32;
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
 
   .status-dot {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--accent);
-    margin-left: auto;
-    box-shadow: 0 0 6px var(--accent);
-    animation: pulse 2.5s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+    background: #2e7d32;
   }
 
   .chat-window {
@@ -109,13 +106,13 @@
   .message {
     display: flex;
     gap: 0.75rem;
-    max-width: 780px;
+    max-width: 760px;
     width: 100%;
-    animation: fadeUp 0.25s ease;
+    animation: fadeUp 0.2s ease;
   }
 
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
@@ -132,16 +129,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 11px;
-    font-family: var(--mono);
-    font-weight: 500;
+    font-size: 10px;
+    font-weight: 600;
     margin-top: 2px;
   }
 
   .message.assistant .msg-icon {
-    background: #085041;
-    color: var(--accent);
-    border: 1px solid rgba(93,202,165,0.2);
+    background: var(--accent);
+    color: #ffffff;
   }
 
   .message.user .msg-icon {
@@ -152,7 +147,7 @@
 
   .bubble {
     padding: 0.75rem 1rem;
-    border-radius: 12px;
+    border-radius: 10px;
     font-size: 14.5px;
     line-height: 1.65;
     max-width: calc(100% - 46px);
@@ -161,29 +156,30 @@
   .message.assistant .bubble {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-top-left-radius: 4px;
+    border-top-left-radius: 3px;
     color: var(--text);
   }
 
   .message.user .bubble {
-    background: var(--user-bg);
-    border: 1px solid rgba(29,158,117,0.3);
-    border-top-right-radius: 4px;
-    color: #c8f0e3;
+    background: #6495ed;
+    border: 1px solid #4a7fd4;
+    border-top-right-radius: 3px;
+    color: #ffffff;
   }
 
   .bubble p { margin-bottom: 0.5rem; }
   .bubble p:last-child { margin-bottom: 0; }
   .bubble ul { padding-left: 1.2rem; margin: 0.4rem 0; }
   .bubble li { margin-bottom: 0.25rem; }
-  .bubble strong { color: var(--accent); font-weight: 500; }
+  .bubble strong { color: var(--accent); font-weight: 600; }
   .bubble code {
-    font-family: var(--mono);
+    font-family: 'Courier New', monospace;
     font-size: 12.5px;
-    background: rgba(93,202,165,0.1);
+    background: var(--surface2);
     color: var(--accent);
     padding: 1px 5px;
     border-radius: 3px;
+    border: 1px solid var(--border);
   }
 
   .typing-indicator {
@@ -193,8 +189,8 @@
     padding: 0.75rem 1rem;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    border-top-left-radius: 4px;
+    border-radius: 10px;
+    border-top-left-radius: 3px;
     width: fit-content;
   }
 
@@ -222,20 +218,20 @@
 
   .chip {
     font-size: 12px;
-    font-family: var(--mono);
-    padding: 5px 12px;
+    padding: 5px 14px;
     border-radius: 20px;
-    border: 1px solid rgba(93,202,165,0.3);
-    color: var(--accent);
-    background: rgba(93,202,165,0.06);
+    border: 1px solid #1a3a5c;
+    color: #ffffff;
+    background: #1a3a5c;
     cursor: pointer;
     transition: all 0.15s ease;
     white-space: nowrap;
+    font-family: var(--ui);
   }
 
   .chip:hover {
-    background: rgba(93,202,165,0.14);
-    border-color: rgba(93,202,165,0.6);
+    background: #2c5f8a;
+    border-color: #2c5f8a;
   }
 
   .input-area {
@@ -249,17 +245,17 @@
     display: flex;
     gap: 0.75rem;
     align-items: flex-end;
-    max-width: 780px;
+    max-width: 760px;
   }
 
   textarea {
     flex: 1;
     background: var(--surface2);
     border: 1px solid var(--border2);
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 0.65rem 1rem;
     color: var(--text);
-    font-family: var(--sans);
+    font-family: var(--ui);
     font-size: 14px;
     line-height: 1.5;
     resize: none;
@@ -270,13 +266,13 @@
   }
 
   textarea::placeholder { color: var(--muted); }
-  textarea:focus { border-color: rgba(93,202,165,0.4); }
+  textarea:focus { border-color: var(--accent); }
 
   button#send-btn {
     width: 42px;
     height: 42px;
-    border-radius: 10px;
-    background: var(--accent2);
+    border-radius: 8px;
+    background: var(--accent);
     border: none;
     cursor: pointer;
     display: flex;
@@ -284,23 +280,21 @@
     justify-content: center;
     flex-shrink: 0;
     transition: all 0.15s ease;
-    color: #e1f5ee;
+    color: #ffffff;
   }
 
-  button#send-btn:hover { background: var(--accent); transform: scale(1.03); }
-  button#send-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+  button#send-btn:hover { background: #1e4a6e; }
+  button#send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
   .footer-note {
     text-align: center;
     font-size: 11px;
-    font-family: var(--mono);
     color: var(--muted);
     margin-top: 0.5rem;
-    opacity: 0.7;
   }
 
-  .footer-note a { color: var(--accent2); text-decoration: none; }
-  .footer-note a:hover { color: var(--accent); }
+  .footer-note a { color: var(--accent); text-decoration: none; }
+  .footer-note a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -309,9 +303,12 @@
   <div class="avatar">MB</div>
   <div class="header-info">
     <h1>Martin Baer</h1>
-    <p>Software Engineer &amp; Contractor · Since 1984</p>
+    <p>Software Engineer &amp; Contractor &middot; 40+ years experience</p>
   </div>
-  <div class="status-dot" title="Online"></div>
+  <div class="status">
+    <div class="status-dot"></div>
+    Available
+  </div>
 </header>
 
 <div class="chat-window" id="chat"></div>
@@ -320,14 +317,14 @@
   <div class="input-row">
     <textarea id="input" placeholder="Ask about Martin's experience, skills, or background…" rows="1"></textarea>
     <button id="send-btn" title="Send">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="22" y1="2" x2="11" y2="13"></line>
         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
       </svg>
     </button>
   </div>
   <p class="footer-note">
-    Powered by Claude · <a href="https://www.linkedin.com/in/martinbaer/" target="_blank">LinkedIn</a> · mbaer.code@gmail.com · 408.609.1162
+    Powered by Claude &middot; <a href="https://www.linkedin.com/in/martinbaer/" target="_blank">LinkedIn</a> &middot; mbaer.code@gmail.com &middot; 408.609.1162
   </p>
 </div>
 
@@ -348,214 +345,187 @@ CAREER OVERVIEW
 
 PROFESSIONAL EXPERIENCE (most recent first):
 
-mySchedule.cloud | SaaS Designer/Builder | Vista, CA | 08/2025–12/2025
+mySchedule.cloud | SaaS Designer/Builder | Vista, CA | 08/2025-12/2025
 - Solo experiment in rapid AI-assisted SaaS development
-- Built and deployed a B2C MVP: PDF work schedule → ICS calendar file converter, billed via Stripe
-- 20 sessions of 4–6 hours each over a couple months
+- Built and deployed a B2C MVP: PDF work schedule to ICS calendar file converter, billed via Stripe
+- 20 sessions of 4-6 hours each over a couple months
 - Google Cloud Platform: Cloud Run, Cloud SQL, Cloud Storage, Document AI, Secret Manager
 - Firebase Auth, Stripe Billing, Python, Flask, Docker, Git
-- "Pair programming with AIs is quirky but great!"
 
-KIKIS IO S.P. | Founder/SWE | Vista, CA | 06/2017–12/2024
+KIKIS IO S.P. | Founder/SWE | Vista, CA | 06/2017-12/2024
 - Sole proprietorship building a lightweight RPA product targeting the GNU toolchain
 - Stopped due to expected AI/ML disruption of the RPA market
 - Tools: C++11, Python 2.7, cmake, Perl 5, Copilot, Visual Studio 2019, Boost, Docker, Automation Anywhere 10.3
 
-AFLAC | RPA Consultant | Columbia, SC | 12/2016–03/2017
+AFLAC | RPA Consultant | Columbia, SC | 12/2016-03/2017
 - Trained on Automation Anywhere 10.3, worked on-site as Senior Consultant
 - Identified RPA-amenable business processes, programmed AA bots, mentored junior members
 
-Cisco Systems | Software Engineer | San Jose, CA | 02/2016–08/2016
+Cisco Systems | Software Engineer | San Jose, CA | 02/2016-08/2016
 - Perl tools for schematic vs PCB design checking
-- Ported Windows/Cygwin codebase to Linux/Apache/Flask for centralized tool access
-- Bare-metal Linux VM installation; remote work from New Mexico
+- Ported Windows/Cygwin codebase to Linux/Apache/Flask
 - Contract via Collabera
 
-LexisNexis Inc. | Software Engineer | Boca Raton, FL | 03/2015–09/2015
+LexisNexis Inc. | Software Engineer | Boca Raton, FL | 03/2015-09/2015
 - Re-skinned LexisNexis.com client using jQuery
 - Integrated jQuery wireframes to Perl + HTML::Templates backend
-- Reports via XSLT, XML, SOAP; contract via Apex Systems
+- Contract via Apex Systems
 
-Apple Inc. | Software Engineer | Cupertino, CA | 09/2014–01/2015
+Apple Inc. | Software Engineer | Cupertino, CA | 09/2014-01/2015
 - Prototype test program generator in Perl
 - Contract via PCS Mt. View
 
-Ericsson Inc. | Software Engineer | San Jose, CA | 04/2013–12/2013
+Ericsson Inc. | Software Engineer | San Jose, CA | 04/2013-12/2013
 - Perl, C++, Tcl, Windows Service components for line card port utilization tracking
-- Global test labs system; contract via At-Tech Staffing
+- Contract via At-Tech Staffing
 
-Cisco Systems | Software Engineer | San Jose, CA | 09/2012–12/2012
-- Extended Perl tool comparing pin/signal names across Excel and Cadence/Mentor CAD outputs
+Cisco Systems | Software Engineer | San Jose, CA | 09/2012-12/2012
+- Extended Perl tool comparing pin/signal names across Excel and CAD outputs
 - Contract via Oxford International
 
-Juniper Networks | Software Engineer | Sunnyvale, CA | 01/2012–07/2012
-- Rewrote virtualization tools in Perl on KVM — predated Docker/Kubernetes
+Juniper Networks | Software Engineer | Sunnyvale, CA | 01/2012-07/2012
+- Rewrote virtualization tools in Perl on KVM, predated Docker/Kubernetes
 - Automated virtual test bed setup/teardown for Junos OS testing
-- Contract via Connextion Systems
 
-Logitech Inc. | Software Engineer | Huntington Beach, CA | 10/2011–11/2011
+Logitech Inc. | Software Engineer | Huntington Beach, CA | 10/2011-11/2011
 - Resolved build issues migrating to GNU Build Tools from Make/nMake silos
 
-Cleveland Clinic | Software Engineer | Cleveland, OH | 08/2011–09/2011
+Cleveland Clinic | Software Engineer | Cleveland, OH | 08/2011-09/2011
 - Proof-of-concept integrating homegrown Perl apps to Lawson job scheduler
 
-Cigna Insurance | Software Engineer | Plantation, FL | 03/2010–04/2011
+Cigna Insurance | Software Engineer | Plantation, FL | 03/2010-04/2011
 - Wrapped SQL development/deployment and Oracle admin processes in Perl library
-- Led Oracle 9i → 10g migration; built database admin toolset
+- Led Oracle 9i to 10g migration; built database admin toolset
 
-Versa Creative Group | Software Engineer | Nassau Bay, TX | 01/2010–02/2010
-- PHP development for hosted ecommerce site
-
-KIKIS TV S.P. | Founder | San Ramon, CA | 10/2008–09/2009
-- Designed and prototyped an internet video monetization platform (long-form streaming)
+KIKIS TV S.P. | Founder | San Ramon, CA | 10/2008-09/2009
+- Designed and prototyped an internet video monetization platform
 - End-to-end: market analysis, business requirements, full-stack J2EE prototype
-- API (J2EE) consumed by AJAX/Flex client; XML-based publisher integration for video ad insertion
 - Tools: Java/J2EE, Tomcat, BlazeDS, Linux, Apache, Flex2/Flash/ActionScript, PostgreSQL
 
-Attributor.com | Software Engineer | San Mateo, CA | 05/2008–07/2008
+Attributor.com | Software Engineer | San Mateo, CA | 05/2008-07/2008
 - Debugged Perl/Firefox compatibility, wrote Hadoop installer, developed Nagios monitoring plugins
 
-Bladelogic | Software Engineer | Lexington, MA | 10/2007–01/2008
-- Extended Perl script for BladeLogic Package Management to push patches to back-level Linux via Yum
+Bladelogic | Software Engineer | Lexington, MA | 10/2007-01/2008
+- Extended Perl script for BladeLogic Package Management to push patches via Yum
 
-Valtech Inc. | Software Engineer | Addison, TX | 09/2006–07/2007
+Valtech Inc. | Software Engineer | Addison, TX | 09/2006-07/2007
 - Productized CPAN DBIx::Informix::Perform module; ported Optifacts to Linux/CVS
-- Agile shop; MTS role
 
-Polycom Corp. | Software Engineer | Austin, TX | 07/2006–08/2006
-- Informal analysis of SIIP protocol future; mentored junior engineer
-
-IBM Corporation | Software Engineer | Austin, TX | 04/2006–06/2006
+IBM Corporation | Software Engineer | Austin, TX | 04/2006-06/2006
 - Migrated large PBX system from Solaris to Linux
 
-Radisys Inc. | Software Engineer | Des Moines, IA | 11/2005–04/2006
-- Perl scripts integrating RPM and filesystem management with ClearCase for embedded filesystem image assembly (Nokia requirement)
+Radisys Inc. | Software Engineer | Des Moines, IA | 11/2005-04/2006
+- Perl scripts integrating RPM and filesystem management with ClearCase for embedded filesystem image assembly
 
-Liberty Mutual | Software Engineer | Portsmouth, NH | 08/2005–10/2005
-- Set up financial transactions for bank customers
+ADP Corp. | Software Engineer | Parsippany, NJ | 03/2005-07/2005
+- Engineered Linux-based silent install and packaging tool
 
-ADP Corp. | Software Engineer | Parsippany, NJ | 03/2005–07/2005
-- Engineered Linux-based silent install and packaging tool; Linux resource and mentor for Windows packaging team
-
-Fujitsu-Siemens | Software Engineer | Santa Clara, CA | 12/2004–02/2005
+Fujitsu-Siemens | Software Engineer | Santa Clara, CA | 12/2004-02/2005
 - C++, Linux-to-Linux porting, RPM patching; ported clustering subsystems to RHEL 4.0 and SLES 9
 
-Comstock Inc. | Software Engineer | Harrison, NY | 06/2004–10/2004
+Comstock Inc. | Software Engineer | Harrison, NY | 06/2004-10/2004
 - C++/Perl client-side apps using Comstock ticker plant products and DDF/CTF protocols
 
-IBM Corporation | Software Engineer | Poughkeepsie, NY | 06/2003–06/2004
-- Sustaining and product extensions for Cluster Systems Management product in Perl
-- Designed class layer, improved coding practices; worked across SLES, RedHat, SuSE, AIX 5.2/5.3
-- Teamed with counterparts in China
+IBM Corporation | Software Engineer | Poughkeepsie, NY | 06/2003-06/2004
+- Sustaining and product extensions for Cluster Systems Management in Perl
+- Worked across SLES, RedHat, SuSE, AIX 5.2/5.3; teamed with counterparts in China
 
-BIT Inc. | Founder | Nashua, NH | 01/2001–04/2003
-- 802.11a wireless PC Companion product: system architecture, business plan, Linux/Win driver design, fundraising pitch
+BIT Inc. | Founder | Nashua, NH | 01/2001-04/2003
+- 802.11a wireless PC Companion product: system architecture, business plan, Linux/Win driver design
 
-Hewlett Packard | Software Engineer | Marlborough, MA | 05/2000–01/2001
+Hewlett Packard | Software Engineer | Marlborough, MA | 05/2000-01/2001
 - Ported Rational Purify/PureCoverage thread layer to Tru64 for Compaq
-- Aided Iona Orbix/Java port to Tru64; debugged complex Imake build environment
+- Aided Iona Orbix/Java port to Tru64
 
-Puma Technologies | Software Engineer | Nashua, NH | 02/2000–05/2000
+Puma Technologies | Software Engineer | Nashua, NH | 02/2000-05/2000
 - Built OO multithreaded automated test environment in Java from requirements through UML to implementation
-- Supported PC and Palm sync protocols on Solaris 8
 
-Progress Software | Software Engineer | Nashua, NH | 09/1999–02/2000
-- Helped bring Progress DB product suite to beta on Linux; debugged database internals on NT
+Progress Software | Software Engineer | Nashua, NH | 09/1999-02/2000
+- Helped bring Progress DB product suite to beta on Linux
 
-Sotheby's (via iXL) | Software Engineer | New York, NY | 04/1999–08/1999
-- Designed e-commerce layer for Sotheby's auction site: C++/Roguewave on Solaris
-- Integrated Cybersource (credit card/tax/AVS), Paymentech (e-checks), ODI ObjectStore DB
+Sotheby's (via iXL) | Software Engineer | New York, NY | 04/1999-08/1999
+- Designed e-commerce layer for Sotheby's auction site in C++/Roguewave on Solaris
+- Integrated Cybersource, Paymentech, ODI ObjectStore DB
 
-Lotus Development | Software Engineer | Cambridge, MA | 11/1998–04/1999
-- Integrated S/390 build kit and support requirements to Notes Programmability Team release process
+Lotus Development | Software Engineer | Cambridge, MA | 11/1998-04/1999
+- Integrated S/390 build kit to Notes Programmability Team release process
 
-Hewlett Packard | Software Engineer | Nashua, NH | 03/1998–07/1998
-- Design proposal to remodel RTR core (C → C++) using Design Patterns and Roguewave
-- Led team of four building IIS website on NT; developed NT release protocol
+Hewlett Packard | Software Engineer | Nashua, NH | 03/1998-07/1998
+- Design proposal to remodel RTR core from C to C++ using Design Patterns
+- Led team of four building IIS website on NT
 
-Open Market Inc. | Software Engineer | Cambridge, MA | 11/1997–03/1998
-- Built shared memory hash table in C++ replacing Roguewave class; integrated to Transact as shared memory registry
-- Compiler/linker performance analysis; CGI → FastCGI migration on Netscape server
+Open Market Inc. | Software Engineer | Cambridge, MA | 11/1997-03/1998
+- Built shared memory hash table in C++ replacing Roguewave class; integrated to Transact
 
-IBM/Lotus Development | Software Engineer | Cambridge, MA | 05/1996–11/1997
-- Web server dev team lead for Lotus Domino on AIX; one of several tech leads
-- Ported CERN/IBM web server sources to AIX Notes server; lead integration engineer for Domino on Solaris and AIX (first two releases)
-- Integrated SSL, BSAFE/BSAFE2 security libraries; handled LDAP issues
-- Solved scalability/concurrency issues scaling Domino onto IBM SP/2 SMP hosts for 1998 Winter Olympics website
-- Created first thread-safe Notes server on AIX; solved complex TCP/IP SPX pipe driver issue
-- Preliminary middleware design for Notes product for Kona (set-top box architecture)
+IBM/Lotus Development | Software Engineer | Cambridge, MA | 05/1996-11/1997
+- Web server dev team lead for Lotus Domino on AIX
+- Solved scalability/concurrency issues for 1998 Winter Olympics website on IBM SP/2
+- Created first thread-safe Notes server on AIX; integrated SSL/BSAFE security
 
-General Electric | Software Engineer | 03/1995–05/2996
-- Real-time embedded device drivers for GE CIMPLICITY (CAM) communicating with Allen Bradley PLCs via proprietary packet layout
-- Partial AIX port of CIMPLICITY; improved system initialization performance by 10x
+General Electric | Software Engineer | 03/1995-05/1996
+- Real-time embedded device drivers for GE CIMPLICITY communicating with Allen Bradley PLCs
+- Improved system initialization performance by 10x
 
-AT&T | Software Engineer | Rancho Bernardo, CA | 10/1994–11/1994
-- Unit tested real-time embedded power-fail dump device driver for SYSV/MP YNet NCR systems using NCR 53C720/53C700 SCSI II chips
+AT&T | Software Engineer | Rancho Bernardo, CA | 10/1994-11/1994
+- Unit tested real-time embedded power-fail dump device driver for SYSV/MP YNet NCR systems
 
-Doctor Design | Software Engineer | Sorrento Valley, CA | 07/1994–08/1994
-- Developed prototype real-time embedded SCSI II device driver for NCR 53C720; exposed board-timing problem
+Doctor Design | Software Engineer | Sorrento Valley, CA | 07/1994-08/1994
+- Prototype real-time embedded SCSI II device driver for NCR 53C720
 
-IBM Corporation | Software Engineer | Boca Raton, FL | 09/1992–03/1994
+IBM Corporation | Software Engineer | Boca Raton, FL | 09/1992-03/1994
 - OS internals, UNIX drivers, SMP, low-level porting for MACH-based OSF1 UNIX
-- Adapted OSF1 Single Server driver interfaces to user-space device servers in microkernel architecture (Ethernet, Token Ring, SCSI disk/tape)
-- Ported OSF1 5.2 snapshot to PS2; ported NFS 4.1; redesigned SMIT as server; ported OS2 FAT filesystem server
-- Evaluated Veritas filesystem products; extensive ELF file format work
+- Adapted OSF1 Single Server driver interfaces to microkernel user-space servers
+- Ported NFS 4.1, redesigned SMIT, ported OS2 FAT filesystem server
 
-IBM Corporation | Software Engineer | Austin, TX | 09/1991–09/1992
+IBM Corporation | Software Engineer | Austin, TX | 09/1991-09/1992
 - Managed team of 5 building automated test tool for OS2
-- Integrated TCP/IP, LEX, YACC to OS2; developed test scenarios and system demo
-- Supported 20+ RS6000 workstation network; developed X-Windows/Motif apps
-- Supported Ethernet, Token Ring, FDDI, optical routers, large disk arrays
+- Integrated TCP/IP, LEX, YACC to OS2; supported 20+ RS6000 workstation network
 
-UCSD MRI Institute | Software Engineer (donated) | San Diego, CA | 05/1990–07/1990
-- Designed small research network; ported C "region of interest" program from DOS to SunOS
+UCSD MRI Institute | Software Engineer (donated) | San Diego, CA | 05/1990-07/1990
+- Designed small research network; ported C program from DOS to SunOS
 
-Columbia University | Software Engineer | New York, NY | 04/1989–02/1990
+Columbia University | Software Engineer | New York, NY | 04/1989-02/1990
 - GUI for experimental wireless pen-based notebook for IBM at Columbia CTR
-- Ported X11 R3 and CMU Andrew Multimedia Editor to AIX; developed dynamic loader in C and i386 assembler
+- Ported X11 R3 and CMU Andrew Multimedia Editor to AIX
 
-Unitel Video | Software Engineer | New York, NY | 10/1988–03/1989
-- OO graphics library for WaveFront Animation on networked IRIS workstations (SYSV)
-- Parsed small language, provided suite of methods; implemented in C (to be converted to C++ once compiler available)
+Unitel Video | Software Engineer | New York, NY | 10/1988-03/1989
+- OO graphics library for WaveFront Animation on networked IRIS workstations
 
-Philon Inc. | Software Engineer | New York, NY | 10/1987–05/1988
-- Extended Pascal compiler runtime module to ANSI PASCAL spec on ULTRIX/VAX/Apollo
+Philon Inc. | Software Engineer | New York, NY | 10/1987-05/1988
+- Extended Pascal compiler runtime to ANSI PASCAL spec
 
-Trigon Inc. | Software Engineer | New York, NY | 02/1987–06/1987
-- Designed and implemented rendering program for Trigon's 3D modeler (Caligari) on Amiga
-- Used Fuchs's algorithm with binary space partitioning trees for 3D object decomposition
+Trigon Inc. | Software Engineer | New York, NY | 02/1987-06/1987
+- Rendering program for Trigon's 3D modeler (Caligari) on Amiga using BSP trees
 
-Tektronix Corp. | Junior Engineer | Santa Clara, CA | 07/1985–08/1985
-- Supported OO C preprocessor predating C++ by months
-- Extensive LEX, YACC, Smalltalk/80 work on Apollo workstations and VAX 11/70
+Tektronix Corp. | Junior Engineer | Santa Clara, CA | 07/1985-08/1985
+- Supported OO C preprocessor predating C++; extensive LEX, YACC, Smalltalk/80
 
-Ampex Corp. | Associate Engineer | Redwood City, CA | 02/1984–03/1985
-- UNIX internals and embedded device driver development for LSI 11/23 subset of UNIX BSD 4.2
-- Thoroughly documented OS; PROM/EPROM burning; hardware testing
+Ampex Corp. | Associate Engineer | Redwood City, CA | 02/1984-03/1985
+- UNIX internals and embedded device driver development for UNIX BSD 4.2 on LSI 11/23
+- First professional engineering role
 
-KEY SKILLS SUMMARY
-Languages: Perl, Python, C, C++, Java, Bash/Shell, JavaScript, PHP, Tcl, Pascal, Assembler (x86, DEC)
-Systems: AIX, Linux (RHEL, SuSE, CentOS), Solaris, UNIX (SYSV, BSD), OSF1/Tru64, Windows NT, OS2, VMS, OS/390
+KEY SKILLS
+Languages: Perl, Python, C, C++, Java, Bash/Shell, JavaScript, PHP, Tcl, Pascal, x86 Assembler
+Systems: AIX, Linux (RHEL, SuSE, CentOS), Solaris, UNIX (SYSV/BSD), OSF1/Tru64, Windows NT, OS2, VMS, OS/390
 Cloud: Google Cloud Platform (Cloud Run, Cloud SQL, Cloud Storage, Document AI, Secret Manager), Firebase, Docker
 Web: Flask, jQuery, HTML/CSS, CGI, FastCGI, Apache, Tomcat, J2EE, BlazeDS, Flex/ActionScript
-Databases: Oracle, PostgreSQL, MySQL, Sybase, Derby, HSQLDB, SQLAlchemy
+Databases: Oracle, PostgreSQL, MySQL, Sybase, Derby, SQLAlchemy
 Networking: TCP/IP, LDAP, SSL, Sockets, NFS, SNMP, IPC, Ethernet, Token Ring, FDDI
-Tools: Git, ClearCase, CVS, SVN, GNU Build Tools, Make, cmake, Docker, VS Code, Gemini, ChatGPT, Copilot
-Protocols/Standards: SCSI II, SOAP, XML/XSLT, ICS/iCalendar, RPA (Automation Anywhere 10.3), Stripe API
+Tools: Git, ClearCase, CVS, SVN, GNU Build Tools, Make, cmake, Docker, VS Code, Copilot, Gemini, ChatGPT
 Special: Embedded device drivers, OS internals, SMP/multithreading, UNIX porting, RPA, AI-assisted dev, SaaS
 
 NOTABLE HIGHLIGHTS
-- Contributed to IBM/Lotus Domino server for AIX powering the 1998 Winter Olympics website
-- Built and shipped a solo SaaS MVP in ~80 hours using AI pair programming (2025)
-- Worked at Apple, Cisco (twice), IBM (multiple engagements), Ericsson, Juniper, GE, HP (twice), Sotheby's, Cigna, LexisNexis
+- Contributed to IBM/Lotus Domino server powering the 1998 Winter Olympics website
+- Built and shipped a solo SaaS MVP in approximately 80 hours using AI pair programming (2025)
+- Worked at Apple, Cisco (twice), IBM (multiple), Ericsson, Juniper, GE, HP (twice), Sotheby's, Cigna, LexisNexis
 - Founded three ventures: BIT Inc. (wireless), KIKIS TV (internet video), KIKIS IO (RPA)
-- 40+ years continuous professional software engineering — from Ampex 1984 to present
+- 40+ years continuous professional software engineering from Ampex 1984 to present
 `;
 
 const QUICK_QUESTIONS = [
   "What's Martin's strongest technical area?",
   "Any big-name companies in his history?",
-  "What's he been doing recently?",
+  "What has he been doing recently?",
   "What languages does he know?",
   "Has he ever led a team?",
   "Is he open to contract work?"
@@ -581,7 +551,6 @@ function renderMessage(role, html) {
   div.appendChild(bubble);
   chat.appendChild(div);
   chat.scrollTop = chat.scrollHeight;
-  return bubble;
 }
 
 function showTyping() {
@@ -610,25 +579,27 @@ function removeTyping() {
 }
 
 function formatResponse(text) {
-  return text
+  let html = text
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     .replace(/`(.*?)`/g, '<code>$1</code>')
-    .replace(/^### (.*)/gm, '<strong>$1</strong>')
-    .replace(/^## (.*)/gm, '<strong>$1</strong>')
-    .replace(/^# (.*)/gm, '<strong>$1</strong>')
-    .split('\n')
-    .reduce((acc, line) => {
-      if (line.startsWith('- ') || line.startsWith('• ')) {
-        if (!acc.inList) { acc.html += '<ul>'; acc.inList = true; }
-        acc.html += `<li>${line.slice(2)}</li>`;
-      } else {
-        if (acc.inList) { acc.html += '</ul>'; acc.inList = false; }
-        if (line.trim()) acc.html += `<p>${line}</p>`;
-      }
-      return acc;
-    }, { html: '', inList: false })
-    .html + (false ? '</ul>' : '');
+    .replace(/^#{1,3} (.*)/gm, '<strong>$1</strong>');
+
+  const lines = html.split('\n');
+  let result = '';
+  let inList = false;
+
+  for (const line of lines) {
+    if (line.startsWith('- ') || line.startsWith('• ')) {
+      if (!inList) { result += '<ul>'; inList = true; }
+      result += `<li>${line.slice(2)}</li>`;
+    } else {
+      if (inList) { result += '</ul>'; inList = false; }
+      if (line.trim()) result += `<p>${line}</p>`;
+    }
+  }
+  if (inList) result += '</ul>';
+  return result;
 }
 
 async function sendMessage(text) {
@@ -646,7 +617,11 @@ async function sendMessage(text) {
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
-      headers: { "Content-Type": "application/json", "x-api-key": "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", "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
+      headers: {
+        "Content-Type": "application/json",        "x-api-key":"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",
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true"
+      },
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
         max_tokens: 1000,
@@ -656,7 +631,7 @@ async function sendMessage(text) {
     });
 
     const data = await response.json();
-    const reply = data.content?.[0]?.text || "Sorry, I couldn't retrieve a response.";
+    const reply = data.content?.[0]?.text || 'Sorry, I could not retrieve a response.';
     history.push({ role: 'assistant', content: reply });
 
     removeTyping();
@@ -682,7 +657,7 @@ function showWelcome() {
   const bubble = document.createElement('div');
   bubble.className = 'bubble';
   bubble.innerHTML = `
-    <p>Hi! I'm a bot that knows Martin Baer's resume inside and out. Ask me anything — his experience at IBM, Apple, or Cisco, his skills in Perl or cloud platforms, his personal ventures, or whether he's available for contract work.</p>
+    <p>Hi — I know Martin Baer's resume inside and out. Ask me anything about his 40+ year career: his experience at IBM, Apple, or Cisco, his skills in Perl, C++, or cloud platforms, his personal ventures, or his availability for contract work.</p>
     <div class="chips" id="chips"></div>
   `;
 
@@ -729,4 +704,5 @@ document.getElementById('input').addEventListener('input', function() {
 showWelcome();
 </script>
 </body>
+</html>
 </html>
