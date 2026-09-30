@@ -1,4 +1,4 @@
 # resume-bot
-An AI powered CV that can discuss my background with potiential clients
+An AI-powered CV that can discuss my background with potential clients.
 
-urls is:  https://mbaer-code.github.io/resume-bot/
+URL: https://mbaer-code.github.io/resume-bot/
