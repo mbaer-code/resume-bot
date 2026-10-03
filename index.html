@@ -345,12 +345,13 @@ A software engineer and contractor across startups, Fortune 500s, and self-found
 
 PROFESSIONAL EXPERIENCE (most recent first):
 
-mySchedule.cloud | SaaS Designer/Builder | Vista, CA | 08/2025-Present
-- Designed, built, and runs a production B2C SaaS that converts employer work-schedule documents (PDF/Word) into ICS calendar files
-- LLM-based extraction pipeline (Anthropic Claude API, Google Document AI) turns unstructured schedules into validated, structured calendar data
-- Privacy-by-design "vending machine" model: pay per conversion, no user accounts, no stored personal data; the original login, email, and database layers (Firebase Auth, Mailgun, Cloud SQL) were removed to simplify the product and eliminate data-handling risk
-- Production stack: Python/Flask on Cloud Run (Docker), Stripe payments, GCP Secret Manager
-- AI-assisted development workflow: Martin owns requirements, architecture, prompt design, review, debugging, and deployment; LLM coding tools (Claude, Gemini, ChatGPT) are used for implementation
+mySchedule.cloud | Founder / Product & Technical Lead (AI-directed development) | Vista, CA | 08/2025-Present
+- Conceived, specified, and directed a production B2C SaaS that converts employer work-schedule documents (PDF/Word) into ICS calendar files
+- The code was written almost entirely by AI coding agents (Claude, Gemini, ChatGPT) under Martin's direction; Martin owns the requirements, architecture, security requirements, LLM pipeline behavior, testing, root-cause diagnosis, and operation of the live product
+- Privacy-by-design "vending machine" model: pay per conversion, no user accounts, no stored personal data; Martin directed removal of the original login, email, and database layers (Firebase Auth, Mailgun, Cloud SQL) to simplify the product and eliminate data-handling risk
+- Designed the LLM pipeline's behavior (Anthropic Claude API, Google Document AI): two-pass extraction, prompt guidance, and validation rules, under the principle that the system fails clearly rather than producing a plausible but wrong calendar entry
+- Tested against real-world documents and led diagnosis of failures (truncated model output from token limits, validation discarding correct results, date-mapping errors in table layouts), then directed the fixes
+- Built on (AI-implemented): Python/Flask on Cloud Run (Docker), Stripe payments, GCP Secret Manager
 
 KIKIS IO S.P. | Founder/SWE | Vista, CA | 08/2016-12/2024
 - Sole proprietorship building a lightweight RPA product targeting the GNU toolchain
@@ -510,18 +511,18 @@ Ampex Corp. | Associate Engineer | Redwood City, CA | 02/1984-03/1985
 - First professional engineering role
 
 KEY SKILLS
-Languages: Perl, Python, C, C++, Java, Bash/Shell, JavaScript, PHP, Tcl, Pascal, x86 Assembler
+Languages: Perl, C, C++, Java, Bash/Shell, JavaScript, PHP, Tcl, Pascal, x86 Assembler; Python and SQL at reading level
 Systems: AIX, Linux (RHEL, SuSE, CentOS), Solaris, UNIX (SYSV/BSD), OSF1/Tru64, Windows NT, OS2, VMS, OS/390
 Cloud: Google Cloud Platform (Cloud Run, Cloud SQL, Cloud Storage, Document AI, Secret Manager), Firebase, Docker
 Web: Flask, jQuery, HTML/CSS, CGI, FastCGI, Apache, Tomcat, J2EE, BlazeDS, Flex/ActionScript
-Databases: Oracle, PostgreSQL, MySQL, Sybase, Derby, SQLAlchemy
+Databases (reading level; used on past projects): Oracle, PostgreSQL, MySQL, Sybase, Derby, SQLAlchemy
 Networking: TCP/IP, LDAP, SSL, Sockets, NFS, SNMP, IPC, Ethernet, Token Ring, FDDI
 Tools: Git, ClearCase, CVS, SVN, GNU Build Tools, Make, cmake, Docker, VS Code, Copilot, Gemini, ChatGPT
 Special: Embedded device drivers, OS internals, SMP/multithreading, UNIX porting, RPA, AI-assisted dev, SaaS
 
 NOTABLE HIGHLIGHTS
 - Contributed to IBM/Lotus Domino server powering the 1998 Winter Olympics website
-- Built and shipped a solo SaaS MVP in approximately 80 hours using AI pair programming (2025)
+- Shipped a solo SaaS MVP in approximately 80 hours by directing AI coding agents (2025)
 - Worked at Apple, Cisco (twice), IBM (multiple), Ericsson, Juniper, GE, HP (twice), Sotheby's, Cigna, LexisNexis
 - Founded three ventures: BIT Inc. (wireless), KIKIS TV (internet video), KIKIS IO (RPA)
 - Professional software engineering career spanning Ampex (1984) to present
