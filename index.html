@@ -349,7 +349,7 @@ mySchedule.cloud | Founder / Product & Technical Lead (AI-directed development) 
 - Conceived, specified, and directed a production B2C SaaS that converts employer work-schedule documents (PDF/Word) into ICS calendar files
 - The code was written almost entirely by AI coding agents (Claude, Gemini, ChatGPT) under Martin's direction; Martin owns the requirements, architecture, security requirements, LLM pipeline behavior, testing, root-cause diagnosis, and operation of the live product
 - Privacy-by-design "vending machine" model: pay per conversion, no user accounts, no stored personal data; Martin directed removal of the original login, email, and database layers (Firebase Auth, Mailgun, Cloud SQL) to simplify the product and eliminate data-handling risk
-- Designed the LLM pipeline's behavior (Anthropic Claude API, Google Document AI): two-pass extraction, prompt guidance, and validation rules, under the principle that the system fails clearly rather than producing a plausible but wrong calendar entry
+- Defined the LLM pipeline's required behavior (Anthropic Claude API, Google Document AI): what to extract, what counts as calendar content, and when to fail, under the principle that the system fails clearly rather than producing a plausible but wrong calendar entry. The prompts and validation code were written by the AI agents, not by Martin
 - Tested against real-world documents and led diagnosis of failures (truncated model output from token limits, validation discarding correct results, date-mapping errors in table layouts), then directed the fixes
 - Built on (AI-implemented): Python/Flask on Cloud Run (Docker), Stripe payments, GCP Secret Manager
 
