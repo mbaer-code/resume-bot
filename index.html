@@ -343,6 +343,10 @@ University of California, Santa Cruz — BFA (2000)
 CAREER OVERVIEW
 A software engineer and contractor across startups, Fortune 500s, and self-founded ventures. Deep roots in UNIX/Linux systems programming, Perl, C/C++, and low-level OS work. More recently pivoted toward cloud platforms, AI-assisted development, and SaaS. Prefers contract/consulting engagements.
 
+Career arc: Martin has worked through several major shifts in how software gets built: compiled C and C++, command lines to windowing systems (UI design at Columbia University on an IBM-funded project), interpreted languages (Perl, then Python), and now AI-generated code. His porting work required diagnosing compiler behavior that differed across vendors and platforms, e.g. casting a char so ported code ran correctly on two vendors' operating systems. He applies the same discipline to AI: direct the tool, verify the output.
+
+Answering style: lead with Martin's current work (AI-directed development, GCP/Cloud Run). Mention career history only when asked or when it directly supports a point, and favor the lesson over dates and eras.
+
 PROFESSIONAL EXPERIENCE (most recent first):
 
 mySchedule.cloud | Founder / Product & Technical Lead (AI-directed development) | Vista, CA | 08/2025-Present
@@ -351,6 +355,10 @@ mySchedule.cloud | Founder / Product & Technical Lead (AI-directed development) 
 - Privacy-by-design "vending machine" model: pay per conversion, no user accounts, no stored personal data; Martin directed removal of the original login, email, and database layers (Firebase Auth, Mailgun, Cloud SQL) to simplify the product and eliminate data-handling risk
 - Defined the LLM pipeline's required behavior (Anthropic Claude API, Google Document AI): what to extract, what counts as calendar content, and when to fail, under the principle that the system fails clearly rather than producing a plausible but wrong calendar entry. The prompts and validation code were written by the AI agents, not by Martin
 - Tested against real-world documents and led diagnosis of failures (truncated model output from token limits, validation discarding correct results, date-mapping errors in table layouts), then directed the fixes
+- Shaped the product through extended upfront design sessions with Gemini, then set and managed a tight delivery schedule
+- Developed working practices to constrain AI coding agents (scoped, incremental changes; protecting stable code from unrequested rewrites) after early passes saw progress wiped by aggressive regeneration
+- Enforced Git discipline throughout and directed the AI to maintain an ordered, well-documented GitHub repository; approved all site copy for accuracy
+- Sole operator of the GCP environment, which the AI could not access: IAM, Secret Manager, Cloud SQL (provisioned, later removed), Cloud Run configuration and deployment, and log extraction for AI-assisted debugging; also set up the local Docker build environment and .env secrets
 - Built on (AI-implemented): Python/Flask on Cloud Run (Docker), Stripe payments, GCP Secret Manager
 
 KIKIS IO S.P. | Founder/SWE | Vista, CA | 08/2016-12/2024
@@ -511,7 +519,7 @@ Ampex Corp. | Associate Engineer | Redwood City, CA | 02/1984-03/1985
 - First professional engineering role
 
 KEY SKILLS
-Languages: Perl, C, C++, Java, Bash/Shell, JavaScript, PHP, Tcl, Pascal, x86 Assembler; Python and SQL at reading level
+Languages: Perl, C, C++, Java, Bash/Shell, JavaScript, PHP, Tcl, Pascal; Python and SQL at reading level
 Systems: AIX, Linux (RHEL, SuSE, CentOS), Solaris, UNIX (SYSV/BSD), OSF1/Tru64, Windows NT, OS2, VMS, OS/390
 Cloud: Google Cloud Platform (Cloud Run, Cloud SQL, Cloud Storage, Document AI, Secret Manager), Firebase, Docker
 Web: Flask, jQuery, HTML/CSS, CGI, FastCGI, Apache, Tomcat, J2EE, BlazeDS, Flex/ActionScript
